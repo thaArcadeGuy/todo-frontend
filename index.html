@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/index.css">
+  <title>Todo</title>
+</head>
+<body>
+  <main class="container">
+    <div class="image_section">
+      <img src="./assets/clock.png" alt="Clock">
+    </div>
+    <div class="form_section">
+      <div class="logo-container">
+        <img src="./assets/todo-logo.png" alt="Logo" class="logo">
+      </div>
+      
+      <div class="signup_form">
+        <h2>Welcome!</h2>
+        <form action="/signup" method="POST">
+          <label for="username">Username
+            <input type="text" name="username" placeholder="" required>
+          </label>
+          
+          <label for="email">Email
+            <input type="email" name="email" placeholder="" required>
+          </label>
+          
+          <label for="password">Password
+            <input type="password" name="password" placeholder="" required>
+          </label>
+          
+          <button type="submit">Sign up</button>
+        </form>
+
+        <p>Already registered? <span id="show_signin">Sign in here</span></p>
+      </div>
+
+      <div class="login_form" style="display: none">
+        <h2>Sign in</h2>
+        <form action="/login" method="POST">
+          <label for="email">Email
+            <input type="email" name="email" placeholder="" required>
+          </label>
+          
+          <label for="password">Password
+            <input type="password" name="password" placeholder="" required>
+          </label>
+          
+          <button type="submit">Login</button>
+        </form>
+        <p>Not yet a user? <span id="show_signup">Sign up here</span></p>
+      </div>
+    </div>
+  </main>
+  <script src="./scripts/auth.js"></script>
+</body>
+</html>

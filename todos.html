@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>To Do | Home</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <img src="./assets/todo-logo.png" alt="ToDo Logo" class="logo">
+      <img src="./assets/logout.svg" alt="logout" class="logout">
+    </div>
+  </header>
+  <main>
+    <section>
+      <h1>Your To Do</h1>
+      <form class="flex-row" id="todo-form">
+        <input type="text" id="todo-input" placeholder="Add a new task" autocomplete="off" required>
+        <button type="submit" id="add-button"><img src="./assets/add.svg" alt="Add icon" class="add-icon"></button>
+      </form>
+      <ul id="todo-list">
+      </ul>
+      <div class="bottom-items flex-row">
+        <div class="items-left"><span>0</span> items left</div>
+        <div class="filter flex-row">
+          <label>
+            <input type="radio" name="filter" id="all" checked>
+            <span>All</span>
+          </label>
+          <label>
+            <input type="radio" name="filter" id="active">
+            <span>Active</span>
+          </label>
+          <label>
+            <input type="radio" name="filter" id="completed">
+            <span>Completed</span>
+          </label>
+        </div>
+        <span class="clear">Clear Completed</span>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>a guy from kasese &copy; 2025 </p>
+  </footer>
+  <script src="./scripts/todos.js"></script>
+</body>
+</html>
