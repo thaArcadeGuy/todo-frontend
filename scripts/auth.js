@@ -1,4 +1,5 @@
-const BASE_URL = "https://koola-mcf3.onrender.com/api";
+// const BASE_URL = "https://koola-mcf3.onrender.com/api";
+const BASE_URL = "http://localhost:8000/api"
 
 if (window.location.hash === "#login") {
   document.querySelector(".login_form").style.display = "block";
