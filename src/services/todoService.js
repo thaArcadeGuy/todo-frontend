@@ -47,10 +47,10 @@ export const todoService = {
     }
   },
 
-  // Clearcompleted todos
+  // Clear completed todos
   clearCompleted: async (todoIds) => {
     try {
-      await Promise.all(todoIds.map(id => api.delete(`todos/${id}`)));
+      await Promise.all(todoIds.map(id => api.delete(`/todos/${id}`)));
       toast.success("Completed todos cleared!")
     } catch (error) {
       toast.error("Failed to clear completed todos");
