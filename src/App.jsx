@@ -1,32 +1,48 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { HelmetProvider } from "react-helmet-async";
+import { AuthProvider } from "./contexts/AuthContext";
+import AuthPage from "./components/auth/AuthPage";
+import TodosPage from "./pages/TodosPage";
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-         
-        </a>
-        <a href="https://react.dev" target="_blank">
-          
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <HelmetProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: "#363636",
+                color: "#fff"
+              },
+              success: {
+                duration: 3000,
+                iconTheme: {
+                  primary: "#4ade80",
+                  secondary: "#fff"
+                },
+              },
+              error: {
+                duration: 4000,
+                iconTheme: {
+                  primary: "#ef4444",
+                  secondary: "#fff"
+                },
+              },
+            }}
+          />
+          <Routes>
+            <Route path="/" element={<AuthPage />} />
+            <Route path="/todos" element={<TodosPage />} />
+            <Route path="*" element={<Navigate to="/scripts" />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </HelmetProvider>
   )
 }
 
