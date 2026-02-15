@@ -26,7 +26,7 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
           checked={todo.state === TASK_STATE.COMPLETED}
           onChange={handleCheckboxChange}
         />
-        <span className="todo-text">{todo.text}</span>
+        <span className="todo-text">{todo.name || todo.text}</span>
       </label>
       <button className="delete-button" onClick={handleDelete}>
         <X size={20} className="delete-icon" />

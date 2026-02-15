@@ -32,7 +32,7 @@ async function addTodo() {
   const todoText = todoInput.value.trim();
   if (todoText.length > 0) {
    try {
-    const response = await fetch(`${BASE_URL}/todos`, {
+    const response = await fetch(`${BASE_URL}/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -96,7 +96,7 @@ function createTodoItem(todo) {
 
 async function loadTodos() {
   try {
-    const response = await fetch(`${BASE_URL}/todos`, {
+    const response = await fetch(`${BASE_URL}/tasks`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", loadTodos);
 
 async function updateTodoState(todoId, state) {
   try {
-    const response = await fetch(`${BASE_URL}/todos/${todoId}`, {
+    const response = await fetch(`${BASE_URL}/tasks/${todoId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -140,7 +140,7 @@ async function updateTodoState(todoId, state) {
 
 async function deleteTodo(todoId) {
   try {
-    const response = await fetch(`${BASE_URL}/todos/${todoId}`, {
+    const response = await fetch(`${BASE_URL}/tasks/${todoId}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`

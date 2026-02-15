@@ -37,7 +37,7 @@ function App() {
           />
           <Routes>
             <Route path="/" element={<AuthPage />} />
-            <Route path="/todos" element={<TodosPage />} />
+            <Route path="/tasks" element={<TodosPage />} />
             <Route path="*" element={<Navigate to="/scripts" />} />
           </Routes>
         </BrowserRouter>

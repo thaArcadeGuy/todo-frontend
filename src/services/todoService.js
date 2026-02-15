@@ -5,10 +5,10 @@ export const todoService = {
   // Get all todos
   getAll: async () => {
     try {
-      const response = await api.get("/todos");
-      return response.data;
+      const response = await api.get("/tasks");
+      return response.data.data || [];
     } catch (error) {
-      toast.error("Failed to load todos");
+      toast.error("Failed to load tasks");
       throw error
     }
   },
@@ -16,11 +16,18 @@ export const todoService = {
   // Create todo
   create: async (text) => {
     try {
-      const response = await api.post("/todos", { text });
-      toast.success("Todo created successfully!");
-      return response.data;
+      const taskData = {
+        name: text,
+        status: "TODO"
+      }
+      const response = await api.post("/tasks", taskData);
+      toast.success("Task created successfully!");
+      return response.data.data || response.data;
     } catch (error) {
-      toast.error(error.response?.data?.message || "Failed to create todos");
+      const errorMessage = error.response?.data?.error?.issues?.[0]?.message || 
+                        error.response?.data?.message || 
+                        "Failed to create task";
+      toast.error(errorMessage);
       throw error
     }
   },
@@ -28,7 +35,7 @@ export const todoService = {
   //Update todo state 
   updateState: async (id, state) => {
     try {
-      const response = await api.patch(`/todos/${id}`, { state });
+      const response = await api.patch(`/tasks/${id}`, { state });
       return response.data;
     } catch (error) {
       toast.error("Failed to update todo");
@@ -39,7 +46,7 @@ export const todoService = {
   // Delete todo {
   delete: async (id) => {
     try {
-      await api.delete(`/todos/${id}`);
+      await api.delete(`/tasks/${id}`);
       toast.success("Todo deleted successfully!");
     } catch (error) {
       toast.error("Failed to delete todo");
@@ -50,7 +57,7 @@ export const todoService = {
   // Clear completed todos
   clearCompleted: async (todoIds) => {
     try {
-      await Promise.all(todoIds.map(id => api.delete(`/todos/${id}`)));
+      await Promise.all(todoIds.map(id => api.delete(`/tasks/${id}`)));
       toast.success("Completed todos cleared!")
     } catch (error) {
       toast.error("Failed to clear completed todos");

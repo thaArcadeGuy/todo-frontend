@@ -39,7 +39,7 @@ document.querySelector(".signup_form form").addEventListener("submit", async (e)
 
     if (response.ok) {
       localStorage.setItem("token", data.token);
-      window.location.href = "./todos.html";
+      window.location.href = "./tasks.html";
     } else {
       alert(data.message || "Registration failed");
     }
@@ -72,7 +72,7 @@ document.querySelector(".login_form form").addEventListener("submit", async(e) =
 
     if (response.ok) {
       localStorage.setItem("token", data.token);
-      window.location.href ="./todos.html";
+      window.location.href ="./tasks.html";
     } else {
       alert(data.message || "Login failed");
     }

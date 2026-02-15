@@ -20,7 +20,7 @@ const AuthPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/todos");
+      navigate("/tasks");
     }
   }, [user, navigate]);
 
