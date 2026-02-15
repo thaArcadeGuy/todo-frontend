@@ -3,7 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const SignupForm = ({ onToggleForm }) => {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: ""
   });
@@ -31,18 +31,18 @@ const SignupForm = ({ onToggleForm }) => {
     <div className="signup_form">
       <h2>Welcome</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">
-          Username
+        <label htmlFor="name">
+          name
           <input
             type="text"
-            name="username"
-            value={formData.username}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             required
           />
         </label>
 
-        <label htmFor="email">
+        <label htmlFor="email">
           Email
           <input
             type="email"

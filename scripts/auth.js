@@ -21,7 +21,7 @@ document.querySelector(".signup_form form").addEventListener("submit", async (e)
   e.preventDefault();
 
   const formData = {
-    username: e.target.username.value,
+    name: e.target.name.value,
     email: e.target.email.value,
     password: e.target.password.value
   };

@@ -3,9 +3,9 @@ import { BASE_URL } from "../utils/constants";
 import toast from "react-hot-toast";
 
 const api = axios.create({
-  baseURL: BASE_URL[import.meta.env.MODE],
+  baseURL: BASE_URL,
   headers: {
-    "content-Type": "application/json",
+    "Content-Type": "application/json",
   },
 });
 
