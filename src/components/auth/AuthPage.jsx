@@ -9,7 +9,7 @@ import '../../styles/index.css';
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const { user } = useAuth;
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
