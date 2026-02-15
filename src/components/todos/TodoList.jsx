@@ -33,7 +33,7 @@ const TodoList = () => {
   };
 
   const handleDeleteTodo = (todoId) => {
-    setTodos(prev => prev.filter(todo => todo._id !== todoId));
+    setTodos(prev => prev.filter(todo => todo.id !== todoId));
   };
 
   const handleClearCompleted = async () => {

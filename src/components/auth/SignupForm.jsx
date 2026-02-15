@@ -32,7 +32,7 @@ const SignupForm = ({ onToggleForm }) => {
       <h2>Welcome</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
-          name
+          Name
           <input
             type="text"
             name="name"

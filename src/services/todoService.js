@@ -36,9 +36,9 @@ export const todoService = {
   updateState: async (id, state) => {
     try {
       const response = await api.patch(`/tasks/${id}`, { state });
-      return response.data;
+      return response.data.data;
     } catch (error) {
-      toast.error("Failed to update todo");
+      toast.error("Failed to update task");
       throw error
     }
   },
@@ -47,9 +47,9 @@ export const todoService = {
   delete: async (id) => {
     try {
       await api.delete(`/tasks/${id}`);
-      toast.success("Todo deleted successfully!");
+      toast.success("Task deleted successfully!");
     } catch (error) {
-      toast.error("Failed to delete todo");
+      toast.error("Failed to delete task");
       throw error;
     }
   },

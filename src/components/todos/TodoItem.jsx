@@ -11,9 +11,14 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
   };
 
   const handleDelete = async () => {
-    if (window.confirm("Are you sure you want to delete this todo?")) {
-      await todoService.delete(todo._id);
-      onDelete(todo._id)
+    if (window.confirm("Are you sure you want to delete this task?")) {
+      try {
+        await todoService.delete(todo.id);
+        onDelete(todo.id);
+      } catch (error) {
+        console.error('Delete failed:', error);
+      }
+
     }
   };
 
