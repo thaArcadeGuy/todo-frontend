@@ -18,7 +18,7 @@ const LoginForm = ({ onToggleForm }) => {
   };
 
   return (
-    <div className="login_Form">
+    <div className="login_form">
       <h2>Sign in</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">

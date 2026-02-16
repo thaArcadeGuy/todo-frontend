@@ -1,56 +1,4 @@
-/* CSS Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body,
-html {
-  height: 100%;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-input, button, textarea, select {
-  appearance: none;
-  font: inherit;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
-p {
-  text-wrap: pretty;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
-}
-
-fieldset,
-input {
-  border: 0;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.container {
+.auth-container {
   display: flex;
   height: 100vh;
 }
@@ -58,6 +6,8 @@ body {
 .image_section {
   flex: 1;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .image_section img {
@@ -76,18 +26,12 @@ body {
 }
 
 .form_section .logo {
-  width: 180px;
-  margin-left: -8px;
-  margin-bottom: 20px;
-}
-
-.form_section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  width: 280px;
+  margin-left: -60px;
+  /* margin-bottom: 10px; */
 }
 
 .login_form,
-.signup_form,
 .logo-container {
   width: 100%;
   max-width: 400px;
@@ -141,15 +85,11 @@ p span {
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
-  /* transition: font-weight 0.3s ease; */
 }
 
 p span:hover {
-  /* font-weight: 600; */
   text-decoration: none;
 }
-
-/* ...existing code... */
 
 @media screen and (max-width: 768px) {
   .image_section {

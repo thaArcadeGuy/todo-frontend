@@ -5,7 +5,7 @@ import SignupForm from "./SignupForm";
 import { useAuth } from "../../hooks/useAuth";
 import clockImage from "../../assets/clock.png";
 import logoImage from "../../assets/koola-logo.png";
-import '../../styles/index.css';
+import "./AuthPage.css"
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -29,7 +29,7 @@ const AuthPage = () => {
   };
 
   return (
-    <main className="container">
+    <main className="auth-container">
       <div className="image_section">
         <img src={clockImage} alt="Clock" />
       </div>
@@ -39,9 +39,9 @@ const AuthPage = () => {
         </div>
 
         {isLogin ? (
-          <LoginForm onToggleForm={toggleForm} />
-        ) : (
           <SignupForm onToggleForm={toggleForm} />
+        ) : (
+          <LoginForm onToggleForm={toggleForm} />
         )}
       </div>
     </main>

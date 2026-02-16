@@ -4,7 +4,6 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import TodoList from "../components/todos/TodoList";
 import { useAuth } from "../hooks/useAuth";
-import "../styles/style.css";
 
 const TodosPage = () => {
   const { user, loading } = useAuth();

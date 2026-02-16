@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import "./SignupForm.css"
 
 const SignupForm = ({ onToggleForm }) => {
   const [formData, setFormData] = useState({
@@ -32,7 +33,7 @@ const SignupForm = ({ onToggleForm }) => {
       <h2>Welcome</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
-          Name
+          Username
           <input
             type="text"
             name="name"
