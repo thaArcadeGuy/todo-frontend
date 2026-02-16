@@ -1,6 +1,7 @@
 import { TASK_STATE } from "../../utils/constants";
 import { todoService } from "../../services/todoService";
 import { X } from "lucide-react";
+import "./TodoItem.css"
 
 
 const TodoItem = ({ todo, onUpdate, onDelete }) => {

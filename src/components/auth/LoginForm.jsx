@@ -21,9 +21,10 @@ const LoginForm = ({ onToggleForm }) => {
     <div className="login_form">
       <h2>Sign in</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">
+        <label className="auth-label" htmlFor="email">
           Email
           <input 
+            className="auth-input"
             type="email"
             name="email"
             value={email}
@@ -32,9 +33,10 @@ const LoginForm = ({ onToggleForm }) => {
           />
         </label>
 
-        <label htmlFor="password">
+        <label className="auth-label" htmlFor="password">
           Password
           <input 
+            className="auth-input"
             type="password"
             name="password"
             value={password}  
@@ -43,7 +45,7 @@ const LoginForm = ({ onToggleForm }) => {
           />
         </label>
 
-        <button type="submit" disabled={loading}>
+        <button className="auth-buttons" type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login" }
         </button>
       </form>

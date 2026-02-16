@@ -1,4 +1,5 @@
 import { FILTERS } from "../../utils/constants";
+import "./TodoFilters.css"
 
 const TodoFilters = ({ activeCount, currentFilter, onFilterChange, onClearCompleted }) => {
   return (

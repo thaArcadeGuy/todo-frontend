@@ -87,11 +87,11 @@ header {
 }
 
 
-/* main {
+main {
   display: flex;
   justify-content: center;
   padding: 20px;
-} */
+}
 
 section {
   max-width: 545px;

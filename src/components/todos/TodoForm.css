@@ -1,0 +1,33 @@
+#todo-form {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+form {
+  gap: 10px;
+}
+
+.task-input-form input {
+  color:#333;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #000;
+  margin-bottom: 10px;
+}
+
+#add-button {
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#add-button:hover {
+  background-color: #333;
+}
+

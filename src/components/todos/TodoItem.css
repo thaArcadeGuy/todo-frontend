@@ -1,0 +1,48 @@
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+li {
+  border: 2px solid #000;
+  padding: 0 20px;
+  margin-block: 10px;
+  justify-content: space-between;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 2px solid #000;
+}
+
+.todo-text {
+  padding: 10px 0px;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  color: #333;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+li input[type="checkbox"]:checked ~ .todo-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+}

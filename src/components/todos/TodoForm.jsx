@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { todoService } from "../../services/todoService";
 import { Plus } from "lucide-react";
+import "./TodoForm.css";
 
 const TodoForm =({ onTodoAdded }) => {
   const [text, setText] = useState("");
@@ -21,7 +22,7 @@ const TodoForm =({ onTodoAdded }) => {
   };
 
   return (
-    <form className="flex-row" id="todo-form" onSubmit={handleSubmit}>
+    <form className="flex-row task-input-form" id="todo-form" onSubmit={handleSubmit}>
       <input
         type="text"
         id="todo-input"

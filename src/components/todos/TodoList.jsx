@@ -4,6 +4,7 @@ import TodoForm from "./TodoForm";
 import TodoFilters from "./TodoFilters";
 import { todoService } from "../../services/todoService";
 import { FILTERS, TASK_STATE } from "../../utils/constants";
+import "./TodoList.css"
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);

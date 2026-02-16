@@ -38,13 +38,13 @@
   margin: 0 auto;
 }
 
-label {
+.auth-label {
   display: block;
   font-size: 1.2rem;
   margin-bottom: 15px;
 }
 
-input {
+.auth-input {
   color:#333;
   width: 100%;
   padding: 10px;
@@ -53,12 +53,12 @@ input {
   margin-bottom: 10px;
 }
 
-input:focus {
+.auth-input:focus {
   outline: none;
 
 }
 
-button {
+.auth-buttons {
   width: 100%;
   padding: 10px;
   font-size: 1.2rem;
@@ -70,7 +70,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.auth-buttons:hover {
   background-color: #333;
 }
 
