@@ -2,6 +2,8 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../../hooks/useAuth";
 import { LogOut } from "lucide-react";
 import logoImage from "../../assets/koola-logo.png";
+import "./Header.css"
+
 
 const Header = () => {
   const { logout } = useAuth();
@@ -14,7 +16,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className="container">
+      <div className="header-container">
         <img src={logoImage} alt="Koola Logo" className="logo" />
         <LogOut
           size={24}

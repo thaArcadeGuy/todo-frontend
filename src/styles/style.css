@@ -1,5 +1,5 @@
 /* CSS Reset */
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -57,7 +57,7 @@ main {
   justify-content: center;
   padding: 20px;
   flex: 1
-}
+} */
 
 .container {
   display: flex;
