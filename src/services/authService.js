@@ -5,10 +5,7 @@ export const authService = {
   register: async (userData) => {
     try {
       const response = await api.post("/auth/register", userData);
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        toast.success("Registration successful!")
-      }
+      toast.success("Registration successful!")
       return response.data
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed");
@@ -19,10 +16,7 @@ export const authService = {
   login: async(credentials) => {
     try {
       const response = await api.post("/auth/login", credentials);
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        toast.success("Login successful!");
-      }
+      toast.success("Login successful!");
       return response.data
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");

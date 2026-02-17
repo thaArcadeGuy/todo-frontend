@@ -6,7 +6,19 @@ export const todoService = {
   getAll: async () => {
     try {
       const response = await api.get("/tasks");
-      return response.data.data || [];
+      const allTasks = response.data.data || [];
+
+      const currentUserResponse = await api.get("/auth/me");
+      const currentUserId = currentUserResponse.data.id;
+
+      const myTasks = allTasks.filter(task => task.owner === currentUserId);
+
+       return myTasks.map(task => ({
+      ...task,
+      id: task.id || task._id
+    }));
+
+      // return response.data.data || [];
     } catch (error) {
       toast.error("Failed to load tasks");
       throw error
