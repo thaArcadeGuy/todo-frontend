@@ -29,7 +29,10 @@ const TodoList = () => {
 
   const handleUpdateTodo = (updatedTodo) => {
     setTodos(prev => 
-      prev.map(todo => todo._id === updatedTodo._id ? updatedTodo : todo)
+      prev.map(todo => todo.id === updatedTodo.id 
+        ? { ...todo, status: updatedTodo.status } 
+        : todo
+      )
     );
   };
 
@@ -39,20 +42,20 @@ const TodoList = () => {
 
   const handleClearCompleted = async () => {
     const completedIds = todos
-      .filter(todo => todo.state === TASK_STATE.COMPLETED)
-      .map(todo => todo._id);
+      .filter(todo => todo.status === "DONE")
+      .map(todo => todo.id);
 
     await todoService.clearCompleted(completedIds);
-    setTodos(prev => prev.filter(todo => todo.state !== TASK_STATE.COMPLETED));
+    setTodos(prev => prev.filter(todo => todo.status !== "DONE"));
   };
 
   const filteredTodos = todos.filter(todo => {
-    if (filter === FILTERS.ACTIVE) return todo.state === TASK_STATE.ACTIVE;
-    if (filter === FILTERS.COMPLETED) return todo.state === TASK_STATE.COMPLETED;
+    if (filter === FILTERS.ACTIVE) return todo.status === "TODO";
+    if (filter === FILTERS.COMPLETED) return todo.status === "DONE";
     return true;
   });
 
-  const activeCount = todos.filter(todo => todo.state === TASK_STATE.ACTIVE).length;
+  const activeCount = todos.filter(todo => todo.status === "TODO").length;
 
   if (loading) {
     return <div className="loading"> Loading your tasks...</div>;

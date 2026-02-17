@@ -17,6 +17,10 @@ form {
   margin-bottom: 10px;
 }
 
+.task-input-form input:focus {
+  outline: none;
+}
+
 #add-button {
   padding: 10px;
   background-color: #000;

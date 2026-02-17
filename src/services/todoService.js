@@ -45,9 +45,9 @@ export const todoService = {
   },
 
   //Update todo state 
-  updateState: async (id, state) => {
+  updateState: async (id, status) => {
     try {
-      const response = await api.patch(`/tasks/${id}`, { state });
+      const response = await api.patch(`/tasks/${id}`, { status });
       return response.data.data;
     } catch (error) {
       toast.error("Failed to update task");

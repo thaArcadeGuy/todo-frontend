@@ -6,9 +6,10 @@ export const BASE_URL = 	"https://api.oluwasetemi.dev"
 // }
 
 export const TASK_STATE = {
-  ACTIVE: "active",
-  COMPLETED: "completed",
-  DELETED: "deleted"
+  TODO: "TODO",
+  IN_PROGRESS: "IN_PROGRESS",
+  DONE: "DONE",
+  CANCELLED: "CANCELLED"
 }
 
 export const FILTERS = {

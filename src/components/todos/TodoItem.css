@@ -18,11 +18,33 @@ li {
   gap: 10px;
 }
 
-.todo-checkbox {
+.custom-checkbox {
   width: 20px;
   height: 20px;
-  cursor: pointer;
   border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  background-color: white;
+  transition: background-color 0.2s ease;
+}
+
+.custom-checkbox.checked {
+  background-color: #000;  
+  border-color: #000;
+}
+
+.checkmark {
+  color: white;        
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: #999;
 }
 
 .todo-text {
@@ -34,7 +56,7 @@ li {
   text-wrap: balance;
 }
 
-li input[type="checkbox"]:checked ~ .todo-text {
+.list-item input[type="checkbox"]:checked ~ .todo-text {
   text-decoration: line-through;
   color: #999;
 }
