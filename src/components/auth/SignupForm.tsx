@@ -1,24 +1,35 @@
 import { useState } from "react";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/useAuth.js";
 import "./SignupForm.css"
+import type { JSX } from "react"
 
-const SignupForm = ({ onToggleForm }) => {
-  const [formData, setFormData] = useState({
+type SignupFormData = {
+  name: string;
+  email: string;
+  password: string;
+}
+
+type SignupFormProps = {
+  onToggleForm: () => void;
+}
+
+const SignupForm = ({ onToggleForm }: SignupFormProps): JSX.Element => {
+  const [formData, setFormData] = useState<SignupFormData>({
     name: "",
     email: "",
     password: ""
   });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const { register } = useAuth();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name as keyof SignupFormData]: e.target.value
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setLoading(true);
     try {
