@@ -1,7 +1,6 @@
 import api from "./api";
 import toast from "react-hot-toast"
-import type { User, LoginCredentials } from "../contexts/AuthContext";
-import type { SignupFormData } from "../components/auth/SignupForm";
+import type { User, LoginCredentials, SignupFormData } from "../types/auth";
 
 type AuthResponse = {
   accessToken: string,

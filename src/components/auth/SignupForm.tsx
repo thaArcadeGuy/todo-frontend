@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import "./SignupForm.css"
+import type { SignupFormData } from "../../types/auth";
 import type { JSX } from "react"
-
-export type SignupFormData = {
-  name: string;
-  email: string;
-  password: string;
-}
 
 type SignupFormProps = {
   onToggleForm: () => void;

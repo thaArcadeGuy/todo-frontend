@@ -1,18 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { authService } from "../services/authService";
-import type { SignupFormData } from "../components/auth/SignupForm";
+import type { User, LoginCredentials, SignupFormData } from "../types/auth";
 import type { JSX } from "react"
-
-export type User = {
-  id: string,
-  name: string,
-  email: string
-}
-
-export type LoginCredentials = {
-  email: string,
-  password: string
-}
 
 type AuthContextType = {
   user: User | null,
