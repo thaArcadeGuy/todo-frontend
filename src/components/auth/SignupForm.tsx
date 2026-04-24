@@ -24,7 +24,7 @@ const SignupForm = ({ onToggleForm }: SignupFormProps): JSX.Element => {
     });
   };
 
-  const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     try {
