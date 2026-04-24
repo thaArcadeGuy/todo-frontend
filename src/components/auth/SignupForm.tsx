@@ -3,7 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 import "./SignupForm.css"
 import type { JSX } from "react"
 
-type SignupFormData = {
+export type SignupFormData = {
   name: string;
   email: string;
   password: string;
