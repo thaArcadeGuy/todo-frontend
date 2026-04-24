@@ -10,10 +10,13 @@ export const TASK_STATE = {
   IN_PROGRESS: "IN_PROGRESS",
   DONE: "DONE",
   CANCELLED: "CANCELLED"
-}
+} as const
 
 export const FILTERS = {
   ALL: "all",
   ACTIVE: "active",
   COMPLETED: "completed"
-}
+} as const
+
+export type TaskState = (typeof TASK_STATE)[keyof typeof TASK_STATE]
+export type Filter = (typeof FILTERS)[keyof typeof FILTERS]
