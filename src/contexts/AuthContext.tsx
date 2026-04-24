@@ -3,13 +3,13 @@ import { authService } from "../services/authService";
 import type { SignupFormData } from "../components/auth/SignupForm";
 import type { JSX } from "react"
 
-type User = {
+export type User = {
   id: string,
   name: string,
   email: string
 }
 
-type LoginCredentials = {
+export type LoginCredentials = {
   email: string,
   password: string
 }
