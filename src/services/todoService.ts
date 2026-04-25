@@ -1,7 +1,7 @@
 import api from "./api";
 import toast from "react-hot-toast";
 import type { TaskState } from "../utils/constants";
-import { isApiError } from "./authService";
+import { isApiError } from "../utils/errorUtils";
 
 export type Todo = {
   id: string,

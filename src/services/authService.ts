@@ -1,23 +1,12 @@
 import api from "./api";
 import toast from "react-hot-toast"
 import type { User, LoginCredentials, SignupFormData } from "../types/auth";
+import { isApiError } from "../utils/errorUtils";
 
 type AuthResponse = {
   accessToken: string,
   user: User
 }
-
-type ApiError = {
-  response?: {
-    data?: {
-      message?: string
-    }
-  }
-}
-
-export const isApiError = (error: unknown): error is ApiError => {
-  return typeof error === "object" && error !== null && "response" in error;
-};
 
 export const authService = {
   register: async (userData: SignupFormData): Promise<AuthResponse> => {
