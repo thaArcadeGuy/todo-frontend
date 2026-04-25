@@ -8,7 +8,8 @@ export type Todo = {
   _id?: string,
   name: string,
   status: TaskState,
-  owner:string
+  owner:string,
+  order: number
 }
 
 type CreateTaskPayload = {

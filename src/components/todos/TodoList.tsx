@@ -2,32 +2,37 @@ import { useState, useEffect } from "react";
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
 import TodoFilters from "./TodoFilters";
-import { todoService } from "../../services/todoService";
-import { FILTERS, TASK_STATE } from "../../utils/constants";
+import { todoService, type Todo } from "../../services/todoService";
+import { FILTERS, TASK_STATE, type Filter } from "../../utils/constants";
 import "./TodoList.css"
 
 const TodoList = () => {
-  const [todos, setTodos] = useState([]);
-  const [filter, setFilter] = useState(FILTERS.ALL);
-  const [loading, setLoading] =  useState(true);
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [filter, setFilter] = useState<Filter>(FILTERS.ALL);
+  const [loading, setLoading] =  useState<boolean>(true);
 
   useEffect(() => {
     loadTodos();
   }, []);
 
-  const loadTodos = async () => {
+  const loadTodos = async (): Promise<void> => {
     setLoading(true);
-    const data = await todoService.getAll();
-    const sortedTodos = data.sort((a, b) => b.order - a.order);
-    setTodos(sortedTodos);
-    setLoading(false);
+    try {
+      const data: Todo[] = await todoService.getAll();
+      const sortedTodos = data.sort((a, b) => b.order - a.order);
+      setTodos(sortedTodos);
+    } catch (error) {
+      console.error("Failed to load todos:", error)
+    } finally {
+      setLoading(false);
+    } 
   };
 
-  const handleAddTodo = (newTodo) => {
+  const handleAddTodo = (newTodo: Todo): void => {
     setTodos(prev => [newTodo, ...prev].sort((a, b) => b.order - a.order));
   };
 
-  const handleUpdateTodo = (updatedTodo) => {
+  const handleUpdateTodo = (updatedTodo: Todo): void => {
     setTodos(prev => 
       prev.map(todo => todo.id === updatedTodo.id 
         ? { ...todo, status: updatedTodo.status } 
@@ -36,26 +41,26 @@ const TodoList = () => {
     );
   };
 
-  const handleDeleteTodo = (todoId) => {
+  const handleDeleteTodo = (todoId: string): void => {
     setTodos(prev => prev.filter(todo => todo.id !== todoId));
   };
 
-  const handleClearCompleted = async () => {
-    const completedIds = todos
-      .filter(todo => todo.status === "DONE")
+  const handleClearCompleted = async (): Promise<void> => {
+    const completedIds: string[] = todos
+      .filter(todo => todo.status === TASK_STATE.DONE)
       .map(todo => todo.id);
 
     await todoService.clearCompleted(completedIds);
-    setTodos(prev => prev.filter(todo => todo.status !== "DONE"));
+    setTodos(prev => prev.filter(todo => todo.status !== TASK_STATE.DONE));
   };
 
   const filteredTodos = todos.filter(todo => {
-    if (filter === FILTERS.ACTIVE) return todo.status === "TODO";
-    if (filter === FILTERS.COMPLETED) return todo.status === "DONE";
+    if (filter === FILTERS.ACTIVE) return todo.status === TASK_STATE.TODO;
+    if (filter === FILTERS.COMPLETED) return todo.status === TASK_STATE.DONE;
     return true;
   });
 
-  const activeCount = todos.filter(todo => todo.status === "TODO").length;
+  const activeCount = todos.filter(todo => todo.status === TASK_STATE.TODO).length;
 
   if (loading) {
     return <div className="loading"> Loading your tasks...</div>;
