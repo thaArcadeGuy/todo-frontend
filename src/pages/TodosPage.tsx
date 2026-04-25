@@ -4,8 +4,9 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import TodoList from "../components/todos/TodoList";
 import { useAuth } from "../hooks/useAuth";
+import type { JSX } from "react";
 
-const TodosPage = () => {
+const TodosPage = (): JSX.Element => {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
 
