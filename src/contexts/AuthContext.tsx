@@ -29,7 +29,7 @@ function AuthProviderComponent({ children }: { children: React.ReactNode }): JSX
   useEffect(() => {
     const loadUser = async () => {
       if (token) {
-        const userData: User = await authService.getCurrentUser();
+        const userData = await authService.getCurrentUser();
         setUser(userData);
       }
       setLoading(false);

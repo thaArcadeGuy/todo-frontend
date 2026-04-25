@@ -44,7 +44,7 @@ const TodoItem = ({ todo, onUpdate, onDelete }: TodoItemProps) => {
         <span
           className={`todo-text ${todo.status === "DONE" ? "completed" : ""}`}
         >
-          {todo.name || todo.text}
+          {todo.name}
         </span>
       </label>
       <button className="delete-button" onClick={handleDelete}>
