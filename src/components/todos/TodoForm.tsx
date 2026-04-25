@@ -1,19 +1,24 @@
 import { useState } from "react";
-import { todoService } from "../../services/todoService";
+import { todoService, type Todo } from "../../services/todoService";
 import { Plus } from "lucide-react";
 import "./TodoForm.css";
+import type { JSX } from "react";
 
-const TodoForm =({ onTodoAdded }) => {
-  const [text, setText] = useState("");
-  const [submitting, setSubmitting] = useState(false);
+type AddTodoFormProps = {
+    onTodoAdded: (todo: Todo) => void
+}
 
-  const handleSubmit = async (e) => {
+const TodoForm =({ onTodoAdded }: AddTodoFormProps): JSX.Element => {
+  const [text, setText] = useState<string>("");
+  const [submitting, setSubmitting] = useState<boolean>(false);
+
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!text.trim()) return;
 
     setSubmitting(true);
     try {
-      const newTodo = await todoService.create(text);
+      const newTodo: Todo = await todoService.create(text);
       onTodoAdded(newTodo);
       setText("");
     } finally {
