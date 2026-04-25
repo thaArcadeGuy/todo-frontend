@@ -8,7 +8,7 @@ import logoImage from "../../assets/koola-logo.png";
 import "./AuthPage.css"
 
 const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState<boolean>(true);
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const AuthPage = () => {
   }, [user, navigate]);
 
   const toggleForm = () => {
-    setIsLogin(!isLogin);
+    setIsLogin((prev) => !prev);
   };
 
   return (
@@ -39,9 +39,9 @@ const AuthPage = () => {
         </div>
 
         {isLogin ? (
-          <SignupForm onToggleForm={toggleForm} />
-        ) : (
           <LoginForm onToggleForm={toggleForm} />
+        ) : (
+          <SignupForm onToggleForm={toggleForm} />
         )}
       </div>
     </main>

@@ -3,7 +3,7 @@ import { authService } from "../services/authService";
 import type { User, LoginCredentials, SignupFormData } from "../types/auth";
 import type { JSX } from "react"
 
-type AuthContextType = {
+export type AuthContextType = {
   user: User | null,
   loading: boolean,
   login: (credentials: LoginCredentials) => Promise<void>,
