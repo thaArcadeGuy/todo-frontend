@@ -38,7 +38,7 @@ function App() {
           <Routes>
             <Route path="/" element={<AuthPage />} />
             <Route path="/tasks" element={<TodosPage />} />
-            <Route path="*" element={<Navigate to="/scripts" />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
