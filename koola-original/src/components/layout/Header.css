@@ -1,0 +1,17 @@
+/* header {
+  border-bottom: 2px solid #000;
+  padding: 20px 0;
+} */
+
+.logo {
+  width: 180px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 0 0;
+}

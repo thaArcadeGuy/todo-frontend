@@ -1,0 +1,50 @@
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.bottom-items {
+  padding: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  align-items: baseline;
+}
+
+.items-left {
+  margin-right: 80px;
+}
+
+.filter {
+  margin-right: 40px;
+}
+
+.filter input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+}
+
+.filter label {
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.filter label:hover {
+  color: #999;
+}
+
+.filter input[type="radio"]:checked ~ span {
+  color: #ccc;
+}
+
+.clear {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.clear:hover {
+  color: #999;
+}

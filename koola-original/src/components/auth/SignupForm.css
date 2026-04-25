@@ -1,0 +1,10 @@
+.form_section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.signup_form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}

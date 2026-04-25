@@ -1,0 +1,113 @@
+.auth-container {
+  display: flex;
+  height: 100vh;
+}
+
+.image_section {
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.image_section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 65%;
+}
+
+.form_section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.form_section .logo {
+  width: 280px;
+  margin-left: -60px;
+  /* margin-bottom: 10px; */
+}
+
+.login_form,
+.logo-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.auth-input {
+  color:#333;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #000;
+  margin-bottom: 10px;
+}
+
+.auth-input:focus {
+  outline: none;
+
+}
+
+.auth-buttons {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons:hover {
+  background-color: #333;
+}
+
+p {
+  font-size: 1rem;
+  /* margin-top: 20px; */
+  text-align: center;
+}
+
+p span {
+  color: #000;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+p span:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .image_section {
+    display: none;
+  }
+
+  .form_section {
+    flex: 1;
+    padding: 30px;
+  }
+
+  .form_section h2 {
+    font-size: 2rem;
+  }
+
+  .login_form,
+  .signup_form,
+  .logo-container {
+    max-width: 100%;
+  }
+}
