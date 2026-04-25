@@ -1,7 +1,15 @@
-import { FILTERS } from "../../utils/constants";
+import { FILTERS, type Filter } from "../../utils/constants";
 import "./TodoFilters.css"
+import type { JSX } from "react";
 
-const TodoFilters = ({ activeCount, currentFilter, onFilterChange, onClearCompleted }) => {
+type TodoFiltersProps = {
+  activeCount: number, 
+  currentFilter: Filter, 
+  onFilterChange: (filter: Filter) => void, 
+  onClearCompleted: () => void
+}
+
+const TodoFilters = ({ activeCount, currentFilter, onFilterChange, onClearCompleted }: TodoFiltersProps): JSX.Element => {
   return (
     <div className="bottom-items flex-row">
       <div className="items-left">
