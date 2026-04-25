@@ -1,8 +1,14 @@
-import { todoService } from "../../services/todoService";
+import { todoService, type Todo } from "../../services/todoService";
 import { X } from "lucide-react";
 import "./TodoItem.css";
 
-const TodoItem = ({ todo, onUpdate, onDelete }) => {
+type TodoItemProps = {
+  todo: Todo, 
+  onUpdate: (todo: Todo) => void, 
+  onDelete: (id: string) => void
+}
+
+const TodoItem = ({ todo, onUpdate, onDelete }: TodoItemProps) => {
   const handleCheckboxChange = async () => {
     const newStatus = todo.status === "DONE" ? "TODO" : "DONE";
     onUpdate({ ...todo, status: newStatus });
@@ -27,7 +33,7 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
   };
 
   return (
-    <li className="flex-row" data-id={todo._id} data-state={todo.state}>
+    <li className="flex-row" data-id={todo.id} data-state={todo.status}>
       <label className="list-item">
         <div
           className={`custom-checkbox ${todo.status === "DONE" ? "checked" : ""}`}
